@@ -107,6 +107,9 @@ spec:
             - name: rpc
               containerPort: {{ include (printf "cadence.%s.internalPort" $service) $ }}
               protocol: TCP
+            - name: grpc
+              containerPort: 7833
+              protocol: TCP
             - name: metrics
               containerPort: 9090
               protocol: TCP
