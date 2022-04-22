@@ -104,6 +104,9 @@ spec:
                   name: {{ include "cadence.persistence.secretName" (list $ "visibility") }}
                   key: {{ include "cadence.persistence.secretKey" (list $ "visibility") }}
           ports:
+            - name: grpc
+              containerPort: 7833
+              protocol: TCP
             - name: rpc
               containerPort: {{ include (printf "cadence.%s.internalPort" $service) $ }}
               protocol: TCP
